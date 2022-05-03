@@ -1,0 +1,131 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>Customer Order</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+
+<body>
+    <div id="app">
+    </div>
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+<script>
+    $(document).ready(function () {
+        getCustomerList();
+    });
+
+    function getCustomerList() {
+        $.ajax({
+            url: "http://localhost:8080/customers", success: function (result) {
+                let innerHtml = `<div id="customers">
+                    <h3 class="m-3">Customers list</h3>
+            <table class="table">
+                <thead class="thead-light">
+                    <th scope="col">Id</th>
+                    <th scope="col">Customer Name</th>
+                    <th scope="col">Customer Email</th>
+                    <th scope="col">Action</th>
+                </thead>
+                <tbody id="customer-list">`;
+                result.customers.forEach(element => {
+                    innerHtml += `
+                    <tr>
+                        <td>${element.id}</td>
+                        <td>${element.name}</td>
+                        <td>${element.email}</td>
+                        <td><button class="btn btn-info" onclick="getCustomerDetails('${element.id}')">View Details</button></td>
+                    </tr>`;
+                });
+                innerHtml += `</tbody></table></div>`;
+                $("#app").html(innerHtml);
+            }
+        });
+    }
+
+    function getCustomerDetails(id) {
+        $.ajax({
+            url: "http://localhost:8080/customers/" + id, success: function (result) {
+                let innerHtml = `<div id="customer">
+                    <div class="d-flex justify-space-between p-3">
+                    <h3 class="mr-auto">Customer Details</h3>
+                    <button class="btn btn-primary" onclick="getCustomerList()">Back</button>
+                    </div><div class="card p-3"><div class="d-flex">`;
+                innerHtml += `<p class="mr-4 my-0"><b>Name: </b> ${result.customer.name}</p>
+                            <p class="mr-4 my-0"><b>Email: </b> ${result.customer.email}</p>
+                            <p class="mr-4 my-0"><b>Mobile No: </b> ${result.customer.mobileNo}</p>
+                        </div>
+                <p><b>Address:</b> ${result.customer.address} </p>
+                <div class="d-flex">
+                    <button class="btn btn-info"  onclick="getOrders('${result.customer.id}')">View Orders (${result.customer.orders.length})</button>
+                </div><div class="row"><div class="col-6" id="orders"></div><div class="col-6" id="order-details"></div></div></div></div></div>`;
+                $("#app").html(innerHtml);
+            }
+        });
+    }
+
+    function getOrders(id) {
+        $.ajax({
+            url: `http://localhost:8080/customers/${id}/orders`, success: function (result) {
+                let innerHtml = `
+                    <table class="table mt-4">
+                        <thead class="thead-light">
+                            <th scope="col">Id</th>
+                            <th scope="col">Total Amount</th>
+                            <th scope="col">Purchase Date</th>
+                            <th scope="col">Total Items</th>
+                            <th scope="col">Action</th>
+                        </thead>
+                        <tbody>`;
+                result.orders.forEach(order => {
+                    innerHtml += `<tr>
+                                <td>${order.id}</td>
+                                <td>$${order.totalAmount}</td>
+                                <td>${order.purchaseDate}</td>
+                                <td>${order.items.length}</th>
+                                <td><button class="btn btn-info"  onclick="getOrderDetails('${id}','${order.id}')">View Items</button></td>
+                            </tr>`;
+                });
+                innerHtml += `</tbody></table>`;
+                $("#orders").html(innerHtml);
+            }
+        });
+    }
+
+    function getOrderDetails(custId, ordId) {
+        $.ajax({
+            url: `http://localhost:8080/customers/${custId}/orders/${ordId}`, success: function (result) {
+                let innerHtml = `<h5>Order Details</h5>
+                                <div class="card p-3">
+                                <div class="d-flex">
+                                <p class="mr-4 my-0"><b>Order Id: </b> ${result.order.id} </p>
+                                <p class="mr-4 my-0"><b>Total Amount: </b> ${result.order.totalAmount}</p>
+                                <p class="mr-4 my-0"><b>Purchase Date: </b> ${result.order.purchaseDate} </p>
+                                </div>
+                                <div class="mt-3" id="items">
+                                <h5>Items</h5>`;
+                result.order.items.forEach(item => {
+                    innerHtml += `<hr class="my-2" /><div class="d-flex">
+                        <p class="mr-4 my-0"><b>Item Name:</b> ${item.name} </p>
+                        <p class="mr-4 my-0"><b>Quantity:</b> ${item.quantity} </p>
+                        <p class="mr-4 my-0"><b>Price:</b> $${item.pricePerItem}/item</p>
+                    </div>`;
+                });
+                innerHtml += `</div></div>`;
+                $("#order-details").html(innerHtml);
+            }
+        });
+    }
+
+</script>
+
+</html>

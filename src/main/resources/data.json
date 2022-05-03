@@ -1,0 +1,219 @@
+[
+    {
+        "id": "C101",
+        "name": "Sagar Dagade",
+        "email": "sagardagade@gmail.com",
+        "mobileNo": 9072096142,
+        "address": "4870 Williams Mine Road, Juneau, Alaska 99801",
+        "orders": [
+            {
+                "id": "O101",
+                "totalAmount": 600,
+                "purchaseDate": "04/08/2022",
+                "items": [
+                    {
+                        "name": "Nike Shoes",
+                        "quantity": 1,
+                        "pricePerItem": 200
+                    },
+                    {
+                        "name": "Shirt",
+                        "quantity": "2",
+                        "pricePerItem": 400
+                    }
+                ]
+            },
+            {
+                "id": "O208",
+                "totalAmount": 50,
+                "purchaseDate": "04/21/2022",
+                "items": [
+                    {
+                        "name": "Boat Head mobileNos",
+                        "quantity": 1,
+                        "pricePerItem": 50
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": "C102",
+        "name": "Gisselle Macejkovic",
+        "email": "GisselleMacejkovic@gmail.com",
+        "mobileNo": 7709001523,
+        "address": "2272 Smith Road, Gainesville, Georgia 30501",
+        "orders": [
+            {
+                "id": "O102",
+                "totalAmount": 300,
+                "purchaseDate": "04/30/2022",
+                "items": [
+                    {
+                        "name": "Levis Jeans",
+                        "quantity": 2,
+                        "pricePerItem": 150
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": "C103",
+        "name": "Nolan Orn",
+        "email": "NolanOrn@gmail.com",
+        "mobileNo": 9285979866,
+        "address": "3573 Skips Lane, Phoenix, Arizona 85012",
+        "orders": [
+            {
+                "id": "O103",
+                "totalAmount": 450,
+                "purchaseDate": "04/30/2022",
+                "items": [
+                    {
+                        "name": "Desktop Table",
+                        "quantity": 1,
+                        "pricePerItem": 450
+                    }
+                ]
+            },
+            {
+                "id": "O104",
+                "totalAmount": 400,
+                "purchaseDate": "05/02/2022",
+                "items": [
+                    {
+                        "name": "Lenevo Laptop",
+                        "quantity": 1,
+                        "pricePerItem": 1050
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": "C104",
+        "name": "Madalyn Rutherford",
+        "email": "MadalynRutherford@gmail.com",
+        "mobileNo": 9312097967,
+        "address": "1414 Farm Meadow Drive, Nashville, Tennessee 37210",
+        "orders": [
+            {
+                "id": "O104",
+                "totalAmount": 40,
+                "purchaseDate": "04/18/2022",
+                "items": [
+                    {
+                        "name": "Car Cover",
+                        "quantity": 1,
+                        "pricePerItem": 40
+                    }
+                ]
+            },
+            {
+                "id": "O105",
+                "totalAmount": 150,
+                "purchaseDate": "05/08/2022",
+                "items": [
+                    {
+                        "name": "College Bag",
+                        "quantity": 1,
+                        "pricePerItem": 150
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": "C105",
+        "name": "Charlie Jonnes",
+        "email": "CharlieJonnes@gmail.com",
+        "mobileNo": 9312097967,
+        "address": "2526 Meadow Drive, Nashville, Tennessee 37210",
+        "orders": [
+            {
+                "id": "O105",
+                "totalAmount": 50,
+                "purchaseDate": "04/16/2022",
+                "items": [
+                    {
+                        "name": "Fasttrack Sun Glasses",
+                        "quantity": 1,
+                        "pricePerItem": 50
+                    }
+                ]
+            },
+            {
+                "id": "O106",
+                "totalAmount": 150,
+                "purchaseDate": "04/28/2022",
+                "items": [
+                    {
+                        "name": "Fasttrack Watch",
+                        "quantity": 1,
+                        "pricePerItem": 150
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": "C107",
+        "name": "Caleb Hoeger",
+        "email": "CalebHoeger@gmail.com",
+        "mobileNo": 9725407602,
+        "address": "3190 S Central Expy, McKinney, Texas 75070",
+        "orders": [
+            {
+                "id": "O108",
+                "totalAmount": 210,
+                "purchaseDate": "04/16/2022",
+                "items": [
+                    {
+                        "name": "ImobileNo Charger",
+                        "quantity": 1,
+                        "pricePerItem": 60
+                    },
+                    {
+                        "name": "Apple Airpods Pro",
+                        "quantity": 1,
+                        "pricePerItem": 150
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": "C108",
+        "name": "Madge Powlowski",
+        "email": "MadgePowlowski@gmail.com",
+        "mobileNo": 4159265665,
+        "address": "5800 3rd St #1004, San Francisco, California 94124",
+        "orders": [
+            {
+                "id": "O110",
+                "totalAmount": 320,
+                "purchaseDate": "04/30/2022",
+                "items": [
+                    {
+                        "name": "Refrigrator",
+                        "quantity": 1,
+                        "pricePerItem": 320
+                    }
+                ]
+            },
+            {
+                "id": "O114",
+                "totalAmount": 100,
+                "purchaseDate": "05/03/2022",
+                "items": [
+                    {
+                        "name": "LED Bulb",
+                        "quantity": 5,
+                        "pricePerItem": 20
+                    }
+                ]
+            }
+        ]
+    }
+]
