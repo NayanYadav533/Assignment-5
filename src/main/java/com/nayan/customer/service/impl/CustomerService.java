@@ -45,7 +45,7 @@ public class CustomerService implements ICustomerService {
 				customer.get().setOrders(cust.getOrders());
 			}
 		});
-		if (customer.isEmpty()) {
+		if (!customer.isPresent()) {
 			return new CustomerResponse(false, "Customer data Not found for id: " + id);
 		}
 		return new CustomerResponse(true, "Customer data found.", customer);
