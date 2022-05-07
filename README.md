@@ -4,7 +4,7 @@ Rest API using spring framework with dockerization<br>
 # ABOUT
 We have implemented customer order record web service with JSON database, in which there are 4 API endpoints as below:<br>
 1. customers/ - This API returns all the customer details present in the database.<br>
-2. customers/{customerId} - This API returns details of customer belongs to customerId. It will display customer infromation like name, address, email address, mobile number and number of orders placed by customer. <br>
+2. customers/{customerId} - This API returns details of customer belongs to customerId. It will display customer information like name, address, email address, mobile number and number of orders placed by customer. <br>
 3. customers/{customerId}/orders  - This API returns order details of a customer id. It will display order id, total amount, purchase date.<br>
 4. customers/{customerId}/orders/{orderId} - This API returns specific order details of a particular order id. It displays order id, total amount, purchase date and all item details.<br>
 
